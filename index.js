@@ -35,3 +35,12 @@ const User = sequelize.define(
   );
 
 User.sync();
+
+salvar();
+async function salvar(){
+    const user = await User.create({
+        firstName: 'Paulo',
+        lastName: 'Freitas'
+      });
+      console.log('User saved successfully!');
+}
