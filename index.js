@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
 
 const sequelize = new Sequelize('aula', 'postgres', 'postgres', {
     host: 'localhost',
@@ -15,3 +15,23 @@ async function conectar(){
         console.error('Unable to connect to the database:', error);
       }
 }
+
+const User = sequelize.define(
+    'User',
+    {
+      // Model attributes are defined here
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        // allowNull defaults to true
+      },
+    },
+    {
+      // Other model options go here
+    },
+  );
+
+User.sync();
