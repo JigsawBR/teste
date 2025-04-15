@@ -1,9 +1,13 @@
 import express from 'express';
 const app = express();
+app.use(express.json());
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Olá Mundo!')
+import Task from './model/task.js';
+
+app.get('/tasks', async (req, res)=>{
+  const tasks = await Task.findAll();
+  res.status(200).json(tasks);
 });
 
 app.listen(port, () => {
