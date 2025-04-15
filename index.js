@@ -1,10 +1,11 @@
-import User from "./model/user.js";
+import express from 'express';
+const app = express();
+const port = 3000;
 
-salvar();
-async function salvar(){
-    const user = await User.create({
-        firstName: 'Maria',
-        lastName: 'Silva'
-      });
-      console.log('User saved successfully!');
-}
+app.get('/', (req, res) => {
+  res.send('Olá Mundo!')
+});
+
+app.listen(port, () => {
+  console.log(`App de exemplo esta rodando na porta ${port}`)
+});
