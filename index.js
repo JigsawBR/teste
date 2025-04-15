@@ -10,6 +10,11 @@ app.get('/tasks', async (req, res)=>{
   res.status(200).json(tasks);
 });
 
+app.post('/tasks', async (req,res)=>{
+  const newTask = await Task.create(req.body);
+  res.status(201).json(newTask);
+});
+
 app.listen(port, () => {
   console.log(`App de exemplo esta rodando na porta ${port}`)
 });
