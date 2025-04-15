@@ -11,8 +11,12 @@ app.get('/tasks', async (req, res)=>{
 });
 
 app.post('/tasks', async (req,res)=>{
-  const newTask = await Task.create(req.body);
-  res.status(201).json(newTask);
+  try{
+    const newTask = await Task.create(req.body);
+    res.status(201).json(newTask);
+  }catch(err){
+    res.status(400).json("Erro ao criar tarefa", err);
+  }
 });
 
 app.listen(port, () => {
