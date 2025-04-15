@@ -19,6 +19,10 @@ const Task = sequelize.define(
       dataHora: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
+      },
+      tipo: {
+        type: DataTypes.ENUM('Pessoal', 'Profissional'),
+        allowNull: false
       }
     },
     {
