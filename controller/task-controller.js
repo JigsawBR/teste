@@ -24,6 +24,22 @@ export async function deleteTask(req,res){
     res.status(200).json(task);
 }
 
+export async function updateTask(req,res){
+    const id = req.params.id;
+    const task = await Task.findByPk(id);
+    if(!task){
+        return res.status(404).json("Tarefa não encontrada");
+    }
+    try{
+        task.set(req.body);
+        await task.save();
+        res.status(200).json(task);
+    }catch(err){
+        console.log(err);
+        res.status(400).json("Falha ao atualizar");
+    }
+}
+
 export async function createTask(req,res){
     try{
       const newTask = await Task.create(req.body);
