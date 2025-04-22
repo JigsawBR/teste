@@ -14,6 +14,16 @@ export async function findTask(req, res){
     res.status(200).json(task);
 }
 
+export async function deleteTask(req,res){
+    const id = req.params.id;
+    const task = await Task.findByPk(id);
+    if(!task){
+        return res.status(404).json("Tarefa não encontrada");
+    }
+    await task.destroy();
+    res.status(200).json(task);
+}
+
 export async function createTask(req,res){
     try{
       const newTask = await Task.create(req.body);
