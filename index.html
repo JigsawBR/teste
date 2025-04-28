@@ -24,7 +24,7 @@
 
     <script>
 
-const btSalvar = document.getElementById("btSalvar")
+        const btSalvar = document.getElementById("btSalvar")
         btSalvar.addEventListener('click', function(){
             const firstName = document.getElementById("firstName")
             const lastName = document.getElementById("lastName")
@@ -33,7 +33,15 @@ const btSalvar = document.getElementById("btSalvar")
                 lastName: lastName.value
             }
 
-            console.log(JSON.stringify(user));
+            fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+            })
+            //TODO: Tratar o retorno, exceção
+
         });
     </script>
 
