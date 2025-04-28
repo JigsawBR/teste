@@ -14,5 +14,28 @@
                 })
             })
     </script>
+
+    <h1>Salvar Usuário</h1>
+    <div>
+        <input type="text" id="firstName" placeholder="Nome">
+        <input type="text" id="lastName" placeholder="Sobrenome">
+        <button id="btSalvar">Salvar</button>
+    </div>
+
+    <script>
+
+const btSalvar = document.getElementById("btSalvar")
+        btSalvar.addEventListener('click', function(){
+            const firstName = document.getElementById("firstName")
+            const lastName = document.getElementById("lastName")
+            const user = {
+                firstName: firstName.value,
+                lastName: lastName.value
+            }
+
+            console.log(JSON.stringify(user));
+        });
+    </script>
+
 </body>
 </html>
