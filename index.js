@@ -24,3 +24,4 @@ app.post('/users', async (req,res)=>{
 app.listen(port, () => {
   console.log(`App de exemplo esta rodando na porta ${port}`)
 });
+

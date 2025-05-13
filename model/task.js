@@ -41,3 +41,4 @@ User.hasMany(Task,{
 Task.sync({force:true});
 
 export default Task;
+

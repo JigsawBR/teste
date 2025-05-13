@@ -19,3 +19,5 @@ async function conectar(){
 }
 
 export default sequelize;
+
+
